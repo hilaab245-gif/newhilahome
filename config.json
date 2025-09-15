@@ -1,0 +1,10 @@
+{
+  "base_url": "https://www.saucedemo.com/",
+  "username": "standard_user",
+  "password": "secret_sauce",
+  "checkout": {
+    "first_name": "Hila",
+    "last_name": "Dalal",
+    "zip_code": "12345"
+  }
+}
