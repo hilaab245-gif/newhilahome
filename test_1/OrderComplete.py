@@ -1,16 +1,18 @@
 import logging
 import sys
-
-import self
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from ui.locator import userorder as LO
+from test_1.basic_fun import *
 
 class OrderCompleteclass:
     def __init__(self, driver: WebDriver, timeout: int = 10):
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
+        logging.info("InventoryPage initialized")
+        verify_page_title(self.driver, "Checkout: Your Information")
+        logging.info("verify title page")
 
     def userdataorder(self,username,lastname,zipcode):
         try:
@@ -32,19 +34,13 @@ class OrderCompleteclass:
             logging.info(" Attempting to click CONTINUE button...")
             self.driver.find_element(*LO.CONTINUE_BUTTON).click()
             logging.info(" CONTINUE button clicked successfully")
-        except Exception as e:
+            logging.info(" Check if display error message")
+            error_mes(self.driver)
+        except Exception as e :
             logging.error(" Failed to click CONTINUE button")
+            print("Failed to click CONTINUE button")
             sys.exit(1)
-    def verify_order_complete(self):
-      try:
-        current_url = self.driver.current_url
-        print(current_url)
-        logging.info(f"Current url: {current_url}")
-        if "https://www.saucedemo.com/checkout-step-two.html" in current_url:
-              logging.info(" Order completed successfully — on the correct page")
-              print(" Order completed successfully — on the correct page")
-      except Exception as e:
-         logging.error(" Unexpected error during order confirmation check")
+
 
 
 

@@ -1,34 +1,62 @@
 Project Link:
-
+https://github.com/hilaab245-gif/newhilahome
 How to run :
 python main.py
 
 How to Change Configuration:
 Go to config.json file
-you can change User Information,url and checkout
 
 design:
 login
-    login_page.py: login functionality-entering username and password, clicking the login button, and verifying successful navigation to the next page.
-test_1:
-     OrderComplete.py-Fills in user information and Verifies that the user reaches the order confirmation page
-     shpp.py- Selects 3 products that are not already in the cart
+    login_page.py: login functionality
+    open_url()-Navigates to the SauceDemo login page.
+    login()-Insert the login action on a website
+    click_login_button()-Submits the login form by clicking the login button and check if display error messages
 
+test_1:The test1 directory contains four Python test files, each designed to validate a specific part
+of the SauceDemo web application using Selenium automation
+     1.shop.py-
+     select_item()- function is designed to add the first three products displayed on
+      the SauceDemo inventory page to the shopping cart.
+      The checkout()-function completes the final step of the purchase process on the SauceDemo website
+     sort_by_name_or_price() function is responsible for sorting the product list on the inventory page by name or by price
+      -take the valur from a configuration file
+     2. OrderComplete.py-
+      userdataorder()-function handles the process of entering user information during checkout on the SauceDemo website.
+       It fills in the required fields: first name, last name, and postal code.
+       clickonbutcontion()-function is responsible for clicking the Continue button on the checkout
+       3.basic_fun-The basic_fun.py file contains two  functions that are used across multiple classes in the project.
+       verify_page_title()-function checks whether the current page title matches an expected value
+       error_mes()-Detects and returns error messages displayed on the page during form submission or validation.
+       4.Checkout_page.py-
+       verify_item- verify if the items match between cart and checkout
 UI:
    Locator-Stores all UI element locators
  config:
     Base URL of the site, User Information,url and checkout data
+
+
 Run output :
-/Users/hila/miniconda3/bin/python /Users/hila/PycharmProjects/hilahometest/main.py
+Users/hila/miniconda3/bin/python /Users/hila/PycharmProjects/hilahometest/main.py
  Successfully opened URL: https://www.saucedemo.com/
- Login successful user standard_user and password secret_sauce
+ User successful to insert standard_user and password secret_sauce
 Login button clicked successfully.
- Products page loaded successfully
+the user move to  Products page
  Added product #: Sauce Labs Backpack
  Added product #: Sauce Labs Bike Light
  Added product #: Sauce Labs Bolt T-Shirt
-user data: Hila, Dalal, 12345
-https://www.saucedemo.com/checkout-step-two.html
- Order completed successfully — on the correct page
+sort product list:
+Sauce Labs Backpack
+Sauce Labs Bike Light
+Sauce Labs Bolt T-Shirt
+Sauce Labs Fleece Jacket
+Sauce Labs Onesie
+Test.allTheThings() T-Shirt (Red)
+the user move to  Checkout: Your Information page
+user data: Hila, Dalal, 123
+the user move to  Checkout: Overview page
+ All items match between cart and checkout.
+ finish button clicked successfully.
+the user move to  Checkout: Complete! page
 
 Process finished with exit code 0

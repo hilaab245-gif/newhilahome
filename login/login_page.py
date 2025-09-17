@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from ui.locator import UserData as loc
-
+from test_1.basic_fun import *
 class LoginPage:
     #
     def __init__(self,driver=None): #open browser
@@ -41,7 +41,6 @@ class LoginPage:
             logging.exception("FAIL: could not open URL: %s", base_url)
             sys.exit(1) #Exit code 1
 
-    #
     def login(self,username:str,password:str):
              try:
                  logging.info("Wait until the username field is present")
@@ -58,24 +57,30 @@ class LoginPage:
                  password_field.clear()
                  password_field.send_keys(password)
              except Exception :
-                 print(f" Login failed for user {username} and password {password}")
-                 logging.exception("FAIL: Login failed for user: %s", username)
+                 print(f" User not successful to insert user {username} and password {password}")
+                 logging.exception("FAIL: User not successful to insert user: %s", username)
                  sys.exit(1)
              else:
-                 print(f" Login successful user {username} and password {password}")
-                 logging.info("PASS: Login successful for user: %s", username)
+                 print(f" User successful to insert {username} and password {password}")
+                 logging.info("PASS: User successful to insert details for user: %s", username)
     def click_login_button(self):
         try:
           logging.info(" Clicking the login button")
           login_button = self.driver.find_element(*loc.LOGIN_BUTTON)
           login_button.click()
-        except Exception:
+        except Exception as e:
             print(" Failed to click login button.")
             logging.exception("FAIL: Could not click login button.")
             sys.exit(1)
         else:
             print("Login button clicked successfully.")
             logging.info("PASS: Login button clicked.")
+            error_mes(self.driver)
+
+
+
+
+
 
 
 
