@@ -18,8 +18,11 @@ class Checkoutclass:
             if sorted(item) == sorted(check_item):
                 print(" All items match between cart and checkout.")
                 logging.info("All items match between cart and checkout.")
+            else:
+                print("Fail :the items not macht")
         except Exception as e:
             logging.exception("Fail :the items not macht")
+            sys.exit(1)
 
 
     def click_finish_button(self):

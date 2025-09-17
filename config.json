@@ -7,5 +7,10 @@
     "first_name": "Hila",
     "last_name": "Dalal",
     "zip_code": "123"
+  },
+   "item": {
+    "1_item": "Sauce Labs Backpack",
+    "2_item": "Sauce Labs Fleece Jacket",
+    "3_item": "Sauce Labs Onesie"
   }
 }

@@ -78,6 +78,52 @@ class InventoryPage:
             names = [item.text.strip() for item in item_names]
             [print (i) for i in names]
 
+    def remove_to_Cart(self,f_item,s_item,t_item,arr):#select item from json file
+        cards = self.driver.find_elements(*li.ITEM_CARD)
+        count = 0
+        for card in cards:
+            logging.info(f"removed  item from cart item from json file")
+            name = card.find_element(*li.ITEM_NAME).text.strip()
+            if name not in arr:
+              if (name == f_item)or (name == s_item) or (name == t_item):
+                btn = card.find_element(*li.ADD_BUTTON)
+                if btn.text== "Remove":
+                     btn.click()
+                     print(f"remove item from  cart -select item from json file : {name}")
+                     logging.info(f"remove to cart item from json file : {name}")
+                     count += 1
+                     if (count == 3) :
+                          print("all the item removed")
+                          break
+        if count != 3:
+           print("not removed all the item")
+
+    def Add_to_Cart(self,f_item,s_item,t_item,arr):
+            cards = self.driver.find_elements(*li.ITEM_CARD)
+            count = 0
+            for card in cards:
+                logging.info(f"Add to cart item from json file")
+                name = card.find_element(*li.ITEM_NAME).text.strip()
+                if name not in arr:
+                   if (name == f_item) or (name == s_item) or (name == t_item):
+                    btn = card.find_element(*li.ADD_BUTTON)
+                    btn.click()
+                    print(f"Add to cart -select item from json file : {name}")
+                    logging.info(f"Add to cart item from json file : {name}")
+                    count += 1
+                    if (count == 3):
+                        print("all the item found")
+                        break
+            if count != 3:
+                print("not found all the item")
+                logging.info("not found all the item")
+
+
+
+
+
+
+
 
 
 
